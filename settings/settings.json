@@ -1,0 +1,8 @@
+{
+    "base_url": "https://homerecipes.sytes.net",
+    "email": "admin@admin.admin",
+    "headers": {
+        "Content-Type": "application/json",
+        "accept": "application/json;charset=utf-8"
+    }
+}
