@@ -14,17 +14,16 @@ class CustomHttpClient:
             "Content-Type": "application/json",
             "accept": "application/json;charset=utf-8",
         }
-        self.enable_authorization()
+        self.enable_admin_authorization()
 
     def set_headers(self, new_dict):
         self.headers = new_dict
         return self
 
-    def enable_authorization(self):
+    def enable_admin_authorization(self):
         url = "https://homerecipes.sytes.net//api/auth/token/login/"
         body = {"email": os.getenv("LOGIN"),
                 "password": os.getenv("PASSWORD")}
-        print(body)
         request = requests.post(url, data=body)
         token = request.json()["auth_token"]
         self.headers["Authorization"] = f"Token {token}"

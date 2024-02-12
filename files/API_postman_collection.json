@@ -1,0 +1,966 @@
+{
+	"info": {
+		"_postman_id": "0de79d57-5168-4b52-9c0a-be50245da64f",
+		"name": "foodgram-project-react",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16104892"
+	},
+	"item": [
+		{
+			"name": "users prod",
+			"item": [
+				{
+					"name": "users list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 7bf83f281aa8d5c5c6144fbe42acda3a843e8e96",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{prod}}/api/users/",
+							"host": [
+								"{{prod}}"
+							],
+							"path": [
+								"api",
+								"users",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user reg",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\": \"mcguiremark@example.org\", \"username\": \"charlesstephen\", \"password\": \"+7_%P2G5Bi\", \"first_name\": \"Heather\", \"last_name\": \"Mcdonald\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prod}}api/users/",
+							"host": [
+								"{{prod}}api"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 7bf83f281aa8d5c5c6144fbe42acda3a843e8e96",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{prod}}/api/users/:id/",
+							"host": [
+								"{{prod}}"
+							],
+							"path": [
+								"api",
+								"users",
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "current user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 94f6347f60b1283e62491c4d11b4e873448c6c11",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{prod}}/api/users/me/",
+							"host": [
+								"{{prod}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"me",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change password",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 9303706eb9aadd182405675faf85a16814cba197",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"new_password\": \"securepassword2\",\r\n    \"current_password\": \"securepassword1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prod}}/api/users/set_password/",
+							"host": [
+								"{{prod}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"set_password",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get token example",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"email\": \"example1@email.com\",\r\n\"password\": \"securepassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prod}}/api/auth/token/login/",
+							"host": [
+								"{{prod}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"token",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get token admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"email\": \"admin@admin.ru\",\r\n\"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prod}}/api/auth/token/login/",
+							"host": [
+								"{{prod}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"token",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "del token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token f752392949e52bebbcb7933179964edaad612d59",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{prod}}/api/auth/token/logout/",
+							"host": [
+								"{{prod}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"token",
+								"logout",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tags",
+			"item": [
+				{
+					"name": "tags list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tags/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tags",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "one tag",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tags/:id",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tags",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "recipes",
+			"item": [
+				{
+					"name": "recipes list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token a813cbf8f1a42fcd3b973b11bd68809aa3105c45",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:10000/api/recipes/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10000",
+							"path": [
+								"api",
+								"recipes",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "is_favorited",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "is_in_shopping_cart",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "author",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "tags",
+									"value": "TestTag3",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add recipe",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 53762495abb28aff100dcb95023b7690468818d5",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ingredients\": [\r\n    {\r\n      \"id\": 1,\r\n      \"amount\": 10\r\n    }\r\n  ],\r\n  \"tags\": [\r\n    2\r\n  ],\r\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\r\n  \"name\": \"TestRecipeName2\",\r\n  \"text\": \"TestRecipeText2\",\r\n  \"cooking_time\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:10000/api/recipes/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10000",
+							"path": [
+								"api",
+								"recipes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "one recipe",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token a3cf9c6b7748857b06e2707dc611ef85c85aca39",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:10000/api/recipes/:id/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10000",
+							"path": [
+								"api",
+								"recipes",
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recipe edit",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token a3cf9c6b7748857b06e2707dc611ef85c85aca39",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ingredients\": [\r\n    {\r\n      \"id\": 1,\r\n      \"amount\": 10\r\n    }\r\n  ],\r\n  \"tags\": [\r\n    1,\r\n    2\r\n  ],\r\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\r\n  \"name\": \"TestRecipeNameEdit\",\r\n  \"text\": \"TestRecipeTextEdit\",\r\n  \"cooking_time\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/recipes/:id/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"recipes",
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recipe delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token a3cf9c6b7748857b06e2707dc611ef85c85aca39",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/recipes/:id/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"recipes",
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "shopping_cart",
+			"item": [
+				{
+					"name": "shopping_cart download",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 6ab1841e87db8e89b159a005ce72459dd3330b1d",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:10000/api/recipes/download_shopping_cart/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10000",
+							"path": [
+								"api",
+								"recipes",
+								"download_shopping_cart",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add recipe in shopping_cart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token a813cbf8f1a42fcd3b973b11bd68809aa3105c45",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:10000/api/recipes/:id/shopping_cart/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10000",
+							"path": [
+								"api",
+								"recipes",
+								":id",
+								"shopping_cart",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dell recipe in shopping_cart",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 6ab1841e87db8e89b159a005ce72459dd3330b1d",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:10000/api/recipes/:id/shopping_cart/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10000",
+							"path": [
+								"api",
+								"recipes",
+								":id",
+								"shopping_cart",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "favorite recipe",
+			"item": [
+				{
+					"name": "add favorite recipe",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token a813cbf8f1a42fcd3b973b11bd68809aa3105c45",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:10000/api/recipes/:id/favorite/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10000",
+							"path": [
+								"api",
+								"recipes",
+								":id",
+								"favorite",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dell recipe favorite recipe",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 6ab1841e87db8e89b159a005ce72459dd3330b1d",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:10000/api/recipes/:id/favorite/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10000",
+							"path": [
+								"api",
+								"recipes",
+								":id",
+								"favorite",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sudscriptions",
+			"item": [
+				{
+					"name": "subscriptions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 1b767f8e56cd8b2177b842ef1dbb7a81216fe9bc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:10000/api/users/subscriptions/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10000",
+							"path": [
+								"api",
+								"users",
+								"subscriptions",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "6",
+									"disabled": true
+								},
+								{
+									"key": "recipes_limit",
+									"value": "3",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "subscribe",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 1b767f8e56cd8b2177b842ef1dbb7a81216fe9bc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:10000/api/users/:id/subscribe/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10000",
+							"path": [
+								"api",
+								"users",
+								":id",
+								"subscribe",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "del subscribe",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 1b767f8e56cd8b2177b842ef1dbb7a81216fe9bc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:10000/api/users/:id/subscribe/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10000",
+							"path": [
+								"api",
+								"users",
+								":id",
+								"subscribe",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ingridients",
+			"item": [
+				{
+					"name": "ingridients list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:10000/api/ingredients/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10000",
+							"path": [
+								"api",
+								"ingredients",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "one ingridients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/ingredients/:id",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"ingredients",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "prod",
+			"value": "https://homerecipes.sytes.net/",
+			"type": "string"
+		},
+		{
+			"key": "localhost",
+			"value": "http://127.0.0.1:10000",
+			"type": "string"
+		}
+	]
+}
