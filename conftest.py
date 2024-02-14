@@ -14,7 +14,7 @@ def get_token():
     return request.json()["auth_token"]
 
 @pytest.fixture(scope="class")
-def get_data_for_change_password():
+def get_data_for_login():
     change_password_data = {}
     user = UsersModel()
     data = user.to_dict()
@@ -23,15 +23,13 @@ def get_data_for_change_password():
     request = client().disable_authorization().post("/api/auth/token/login/", data=user_data)
     change_password_data["token"] = request.json()["auth_token"]
     change_password_data["password"] = user.password
+    change_password_data["email"] = user.email
     return change_password_data
 
 @pytest.fixture(scope="class")
 def get_new_user_id():
     user = UsersModel()
-    data = user.to_dict()
     response = client().disable_authorization().post("/api/users/",
-                                        data=data)
-    print(response.text)
-    print(response.content)
+                                        data=user.to_dict())
     response_json = json.loads(response.text)
     return response_json["id"]
