@@ -7,7 +7,7 @@ from models.users_model import UsersModel
 faker = Faker()
 
 class TestUsersNegative:
-    def test_create_user_without_email_status_code(self):
+    def test_create_users_without_email_status_code(self):
         user = UsersModel()
         data = user.to_dict()
         del data["email"]
@@ -17,7 +17,7 @@ class TestUsersNegative:
              response.status_code == 400
             ), f"Status not 400, current status: {response.status_code}"
 
-    def test_create_user_without_username_status_code(self):
+    def test_create_users_without_username_status_code(self):
         user = UsersModel()
         data = user.to_dict()
         del data["username"]
@@ -27,7 +27,7 @@ class TestUsersNegative:
              response.status_code == 400
             ), f"Status not 400, current status: {response.status_code}"
 
-    def test_create_user_without_password_status_code(self):
+    def test_create_users_without_password_status_code(self):
         user = UsersModel()
         data = user.to_dict()
         del data["password"]
@@ -37,7 +37,7 @@ class TestUsersNegative:
              response.status_code == 400
             ), f"Status not 400, current status: {response.status_code}"
 
-    def test_create_user_without_first_name_status_code(self):
+    def test_create_users_without_first_name_status_code(self):
         user = UsersModel()
         data = user.to_dict()
         del data["first_name"]
@@ -47,7 +47,7 @@ class TestUsersNegative:
              response.status_code == 400
             ), f"Status not 400, current status: {response.status_code}"
 
-    def test_create_user_without_last_name_status_code(self):
+    def test_create_users_without_last_name_status_code(self):
         user = UsersModel()
         data = user.to_dict()
         del data["last_name"]
@@ -57,7 +57,7 @@ class TestUsersNegative:
              response.status_code == 400
             ), f"Status not 400, current status: {response.status_code}"
 
-    def test_create_user_email_with_boolean_status_code(self):
+    def test_create_users_email_with_boolean_status_code(self):
         user = UsersModel()
         data = user.to_dict()
         data["email"] = faker.boolean()
@@ -67,7 +67,7 @@ class TestUsersNegative:
              response.status_code == 400
             ), f"Status not 400, current status: {response.status_code}"
 
-    def test_create_user_email_with_text_status_code(self):
+    def test_create_users_email_with_text_status_code(self):
         user = UsersModel()
         data = user.to_dict()
         data["email"] = faker.lexify(text=f"{'?' * 12}")
@@ -77,7 +77,7 @@ class TestUsersNegative:
              response.status_code == 400
             ), f"Status not 400, current status: {response.status_code}"
 
-    def test_create_user_email_with_text_status_code(self):
+    def test_create_users_email_with_text_status_code(self):
         user = UsersModel()
         data = user.to_dict()
         data["email"] = faker.lexify(letters='!@#$^&*()_+')
@@ -87,7 +87,7 @@ class TestUsersNegative:
              response.status_code == 400
             ), f"Status not 400, current status: {response.status_code}"
 
-    def test_create_user_password_with_boolean_status_code(self):
+    def test_create_users_password_with_boolean_status_code(self):
         user = UsersModel()
         data = user.to_dict()
         data["password"] = faker.boolean()
@@ -97,7 +97,7 @@ class TestUsersNegative:
              response.status_code == 400
             ), f"Status not 400, current status: {response.status_code}"
 
-    def test_create_user_first_name_with_boolean_status_code(self):
+    def test_create_users_first_name_with_boolean_status_code(self):
         user = UsersModel()
         data = user.to_dict()
         data["first_name"] = faker.boolean()
@@ -107,7 +107,7 @@ class TestUsersNegative:
              response.status_code == 400
             ), f"Status not 400, current status: {response.status_code}"
 
-    def test_create_user_last_name_with_boolean_status_code(self):
+    def test_create_users_last_name_with_boolean_status_code(self):
         user = UsersModel()
         data = user.to_dict()
         data["last_name"] = faker.boolean()
