@@ -1,4 +1,3 @@
-from jsonschema import validate
 from faker import Faker
 
 from supported_classes.http_client import CustomHttpClient as client
