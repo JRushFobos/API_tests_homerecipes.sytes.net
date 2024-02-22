@@ -5,7 +5,7 @@ valid_schema_tags = {
         "name": {"type": "string"},
         "image": {"type": "string"},
         "cooking_time": {"type": "integer"},
-    }
+    },
 }
 
 
@@ -30,8 +30,9 @@ valid_schema_sudscriptions_array = {
                         "image": {"type": "string"},
                         "cooking_time": {"type": "integer"},
                     },
-                },},
+                },
+            },
             "recipes_count": {"type": "integer"},
-        }
+        },
     },
 }

@@ -4,7 +4,7 @@ valid_schema_tags = {
         "id": {"type": "integer"},
         "name": {"type": "string", "minLength": 1, "maxLength": 200},
         "measurement_unit": {"type": "string", "minLength": 1, "maxLength": 200},
-    }
+    },
 }
 
 valid_schema_tags_array = {
@@ -15,6 +15,6 @@ valid_schema_tags_array = {
             "id": {"type": "integer"},
             "name": {"type": "string", "minLength": 1, "maxLength": 200},
             "measurement_unit": {"type": "string", "minLength": 1, "maxLength": 200},
-        }
+        },
     },
 }

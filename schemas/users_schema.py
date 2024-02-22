@@ -6,7 +6,7 @@ valid_schema_users = {
         "password": {"type": "string", "minLength": 1, "maxLength": 150},
         "first_name": {"type": "string", "minLength": 1, "maxLength": 150},
         "last_name": {"type": "string", "minLength": 1, "maxLength": 150},
-    }
+    },
 }
 
 valid_schema_users_array = {
@@ -19,6 +19,6 @@ valid_schema_users_array = {
             "password": {"type": "string", "minLength": 1, "maxLength": 150},
             "first_name": {"type": "string", "minLength": 1, "maxLength": 150},
             "last_name": {"type": "string", "minLength": 1, "maxLength": 150},
-        }
+        },
     },
 }
