@@ -10,6 +10,33 @@
 			"name": "users prod",
 			"item": [
 				{
+					"name": "user reg",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"m@example.org\",\r\n    \"username\": \"aaaachaaarlesstephenaa\",\r\n    \"password\": \"!@#aa$^&*()_+\",\r\n    \"first_name\": \"aaaaHeaaatheraa\",\r\n    \"last_name\": \"aMaaacdoaanaldaa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prod}}api/users/",
+							"host": [
+								"{{prod}}api"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "users list",
 					"request": {
 						"method": "GET",
@@ -48,65 +75,6 @@
 					"response": []
 				},
 				{
-					"name": "user reg",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"email\": \"mcguiremark@example.org\", \"username\": \"charlesstephen\", \"password\": \"+7_%P2G5Bi\", \"first_name\": \"Heather\", \"last_name\": \"Mcdonald\"}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{prod}}api/users/",
-							"host": [
-								"{{prod}}api"
-							],
-							"path": [
-								"users",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "user profile",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Token 7bf83f281aa8d5c5c6144fbe42acda3a843e8e96",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{prod}}/api/users/:id/",
-							"host": [
-								"{{prod}}"
-							],
-							"path": [
-								"api",
-								"users",
-								":id",
-								""
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "2"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "current user",
 					"request": {
 						"auth": {
@@ -116,7 +84,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 94f6347f60b1283e62491c4d11b4e873448c6c11",
+								"value": "Token {{admintoken}}",
 								"type": "text"
 							}
 						],
@@ -136,6 +104,38 @@
 					"response": []
 				},
 				{
+					"name": "user profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 6603d35f0c84c7b27395c7f77dbe2910848ecfbe",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{prod}}/api/users/:id/",
+							"host": [
+								"{{prod}}"
+							],
+							"path": [
+								"api",
+								"users",
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "change password",
 					"request": {
 						"auth": {
@@ -145,13 +145,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 9303706eb9aadd182405675faf85a16814cba197",
+								"value": "Token 2082a8c333da1f5e51095e7ac61b515767321fdb",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"new_password\": \"securepassword2\",\r\n    \"current_password\": \"securepassword1\"\r\n}",
+							"raw": "{\r\n    \"new_password\": \"securepassword3\",\r\n    \"current_password\": \"securepassword2\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -180,7 +180,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"email\": \"example1@email.com\",\r\n\"password\": \"securepassword\"\r\n}",
+							"raw": "{\r\n\"email\": \"admin@admin.admin\",\r\n\"password\": \"admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -210,7 +210,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"email\": \"admin@admin.ru\",\r\n\"password\": \"admin\"\r\n}",
+							"raw": "{\r\n\"email\": \"admin@admin.admin\",\r\n\"password\": \"admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -218,12 +218,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{prod}}/api/auth/token/login/",
+							"raw": "{{prod}}api/auth/token/login/",
 							"host": [
-								"{{prod}}"
+								"{{prod}}api"
 							],
 							"path": [
-								"api",
 								"auth",
 								"token",
 								"login",
@@ -240,7 +239,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token f752392949e52bebbcb7933179964edaad612d59",
+								"value": "Token 45172fdfbcb53281ffd2b2121657b45d232184b41",
 								"type": "text"
 							}
 						],
@@ -271,15 +270,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/tags/",
-							"protocol": "http",
+							"raw": "{{prod}}/api/tags/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{prod}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"tags",
@@ -295,15 +289,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/tags/:id",
-							"protocol": "http",
+							"raw": "{{prod}}/api/tags/:id",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{prod}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"tags",
@@ -331,21 +320,15 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token a813cbf8f1a42fcd3b973b11bd68809aa3105c45",
-								"type": "text",
-								"disabled": true
+								"value": "Token {{admintoken}}",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:10000/api/recipes/",
-							"protocol": "http",
+							"raw": "{{prod}}/api/recipes/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{prod}}"
 							],
-							"port": "10000",
 							"path": [
 								"api",
 								"recipes",
@@ -394,13 +377,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 53762495abb28aff100dcb95023b7690468818d5",
+								"value": "Token {{admintoken}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ingredients\": [\r\n    {\r\n      \"id\": 1,\r\n      \"amount\": 10\r\n    }\r\n  ],\r\n  \"tags\": [\r\n    2\r\n  ],\r\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\r\n  \"name\": \"TestRecipeName2\",\r\n  \"text\": \"TestRecipeText2\",\r\n  \"cooking_time\": 1\r\n}",
+							"raw": "{\r\n    \"ingredients\": [\r\n        {\r\n            \"id\": 1,\r\n            \"amount\": 10\r\n        }\r\n    ],\r\n    \"tags\": [\r\n        2\r\n    ],\r\n    \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\r\n    \"name\": \"ТестовыйРецепт\",\r\n    \"text\": \"TestRecipeText2\",\r\n    \"cooking_time\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -408,15 +391,44 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:10000/api/recipes/",
-							"protocol": "http",
+							"raw": "{{prod}}/api/recipes/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{prod}}"
 							],
-							"port": "10000",
+							"path": [
+								"api",
+								"recipes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add recipe Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 2fc2214ee5980cb0441ef7893463dbc2078b7065",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ingredients\": None,\r\n    \"tags\": [\r\n        2\r\n    ],\r\n    \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANkAAAIKCAIAAAAh6X2JAAABYUlEQVR4nO3BgQAAAADDoPlTX+EAVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAK8BMcMAAQ7FU/wAAAAASUVORK5CYII=\",\r\n    \"name\": \"Mr. Roger Grant PhD\",\r\n    \"text\": \"#a0c62e\",\r\n    \"cooking_time\": 14\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prod}}/api/recipes/",
+							"host": [
+								"{{prod}}"
+							],
 							"path": [
 								"api",
 								"recipes",
@@ -433,21 +445,15 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token a3cf9c6b7748857b06e2707dc611ef85c85aca39",
-								"type": "text",
-								"disabled": true
+								"value": "Token {{admintoken}}",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:10000/api/recipes/:id/",
-							"protocol": "http",
+							"raw": "{{prod}}/api/recipes/:id/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{prod}}"
 							],
-							"port": "10000",
 							"path": [
 								"api",
 								"recipes",
@@ -457,7 +463,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "1"
+									"value": "5"
 								}
 							]
 						}
@@ -471,13 +477,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token a3cf9c6b7748857b06e2707dc611ef85c85aca39",
+								"value": "Token {{admintoken}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ingredients\": [\r\n    {\r\n      \"id\": 1,\r\n      \"amount\": 10\r\n    }\r\n  ],\r\n  \"tags\": [\r\n    1,\r\n    2\r\n  ],\r\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\r\n  \"name\": \"TestRecipeNameEdit\",\r\n  \"text\": \"TestRecipeTextEdit\",\r\n  \"cooking_time\": 1\r\n}",
+							"raw": "{\r\n    \"id\": 5,\r\n    \"tags\": [\r\n        {\r\n            \"id\": 1,\r\n            \"name\": \"Завтрак\",\r\n            \"color\": \"#eb4034\",\r\n            \"slug\": \"Breakfast\"\r\n        }\r\n    ],\r\n    \"author\": {\r\n        \"id\": 1,\r\n        \"username\": \"admin\",\r\n        \"first_name\": \"admin\",\r\n        \"last_name\": \"admin\",\r\n        \"email\": \"admin@admin.admin\",\r\n        \"is_subscribed\": false\r\n    },\r\n    \"ingredients\": [\r\n        {\r\n            \"id\": 1579,\r\n            \"name\": \"свиная мякоть\",\r\n            \"measurement_unit\": \"г\",\r\n            \"amount\": 78\r\n        }\r\n    ],\r\n    \"is_favorited\": false,\r\n    \"is_in_shopping_cart\": false,\r\n    \"image\": \"http://homerecipes.sytes.net/media/image_recipe/74f83441-8662-4971-894a-018ad16aac22.png\",\r\n    \"name\": \"Thomas Wright1\",\r\n    \"text\": \"#db9d35\",\r\n    \"cooking_time\": 35\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -485,15 +491,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/recipes/:id/",
-							"protocol": "http",
+							"raw": "{{prod}}/api/recipes/:id/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{prod}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"recipes",
@@ -503,7 +504,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "3"
+									"value": "5"
 								}
 							]
 						}
@@ -517,20 +518,15 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token a3cf9c6b7748857b06e2707dc611ef85c85aca39",
+								"value": "Token {{admintoken}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/recipes/:id/",
-							"protocol": "http",
+							"raw": "{{prod}}/api/recipes/:id/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{prod}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"recipes",
@@ -540,7 +536,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "3"
+									"value": "4"
 								}
 							]
 						}
@@ -559,20 +555,15 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 6ab1841e87db8e89b159a005ce72459dd3330b1d",
+								"value": "Token {{admintoken}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:10000/api/recipes/download_shopping_cart/",
-							"protocol": "http",
+							"raw": "{{prod}}/api/recipes/download_shopping_cart/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{prod}}"
 							],
-							"port": "10000",
 							"path": [
 								"api",
 								"recipes",
@@ -590,20 +581,15 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token a813cbf8f1a42fcd3b973b11bd68809aa3105c45",
+								"value": "Token {{admintoken}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:10000/api/recipes/:id/shopping_cart/",
-							"protocol": "http",
+							"raw": "{{prod}}/api/recipes/:id/shopping_cart/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{prod}}"
 							],
-							"port": "10000",
 							"path": [
 								"api",
 								"recipes",
@@ -628,20 +614,15 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 6ab1841e87db8e89b159a005ce72459dd3330b1d",
+								"value": "Token {{admintoken}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:10000/api/recipes/:id/shopping_cart/",
-							"protocol": "http",
+							"raw": "{{prod}}/api/recipes/:id/shopping_cart/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{prod}}"
 							],
-							"port": "10000",
 							"path": [
 								"api",
 								"recipes",
@@ -676,15 +657,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:10000/api/recipes/:id/favorite/",
-							"protocol": "http",
+							"raw": "{{prod}}/api/recipes/:id/favorite/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{prod}}"
 							],
-							"port": "10000",
 							"path": [
 								"api",
 								"recipes",
@@ -714,15 +690,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:10000/api/recipes/:id/favorite/",
-							"protocol": "http",
+							"raw": "{{prod}}/api/recipes/:id/favorite/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{prod}}"
 							],
-							"port": "10000",
 							"path": [
 								"api",
 								"recipes",
@@ -752,20 +723,15 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 1b767f8e56cd8b2177b842ef1dbb7a81216fe9bc",
+								"value": "Token {{admintoken}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:10000/api/users/subscriptions/",
-							"protocol": "http",
+							"raw": "{{prod}}/api/users/subscriptions/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{prod}}"
 							],
-							"port": "10000",
 							"path": [
 								"api",
 								"users",
@@ -800,20 +766,15 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 1b767f8e56cd8b2177b842ef1dbb7a81216fe9bc",
+								"value": "Token {{admintoken}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:10000/api/users/:id/subscribe/",
-							"protocol": "http",
+							"raw": "{{prod}}/api/users/:id/subscribe/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{prod}}"
 							],
-							"port": "10000",
 							"path": [
 								"api",
 								"users",
@@ -824,7 +785,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "1"
+									"value": "$$"
 								}
 							]
 						}
@@ -838,20 +799,16 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 1b767f8e56cd8b2177b842ef1dbb7a81216fe9bc",
-								"type": "text"
+								"value": "Token {{admintoken}}",
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:10000/api/users/:id/subscribe/",
-							"protocol": "http",
+							"raw": "{{prod}}/api/users/:id/subscribe/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{prod}}"
 							],
-							"port": "10000",
 							"path": [
 								"api",
 								"users",
@@ -862,7 +819,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "1"
+									"value": "2"
 								}
 							]
 						}
@@ -880,15 +837,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:10000/api/ingredients/",
-							"protocol": "http",
+							"raw": "{{prod}}/api/ingredients/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{prod}}"
 							],
-							"port": "10000",
 							"path": [
 								"api",
 								"ingredients",
@@ -904,15 +856,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/ingredients/:id",
-							"protocol": "http",
+							"raw": "{{prod}}/api/ingredients/:id",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{prod}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"ingredients",
@@ -937,6 +884,25 @@
 			"script": {
 				"type": "text/javascript",
 				"exec": [
+					"var formData = { ",
+					"    email: 'admin@admin.admin',",
+					"    password: 'admin'",
+					"};",
+					"",
+					"pm.sendRequest({",
+					"    url: 'https://homerecipes.sytes.net/api/auth/token/login/',",
+					"    method: 'POST',",
+					"    header: { 'Content-Type': 'application/json' },",
+					"    body: {",
+					"        mode: 'raw',",
+					"        raw: JSON.stringify(formData)",
+					"    }",
+					"}, function (err, response) {",
+					"    console.log('Status code:', response.code);",
+					"    var token = response.json().auth_token;",
+					"    console.log('Token:', token);",
+					"    pm.variables.set(\"admintoken\", token);",
+					"});",
 					""
 				]
 			}
@@ -954,12 +920,17 @@
 	"variable": [
 		{
 			"key": "prod",
-			"value": "https://homerecipes.sytes.net/",
+			"value": "https://homerecipes.sytes.net",
 			"type": "string"
 		},
 		{
 			"key": "localhost",
 			"value": "http://127.0.0.1:10000",
+			"type": "string"
+		},
+		{
+			"key": "admintoken",
+			"value": "test",
 			"type": "string"
 		}
 	]

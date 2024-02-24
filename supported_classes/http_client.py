@@ -50,13 +50,13 @@ class CustomHttpClient:
                 files=files,
             )
 
-    def put(self, path, data=None, files=None):
+    def patch(self, path, data=None, files=None):
         if files is None:
-            return requests.put(
+            return requests.patch(
                 f"{self.site}/{path}", headers=self.headers, data=json.dumps(data)
             )
         else:
-            return requests.put(
+            return requests.patch(
                 f"{self.site}/{path}",
                 headers=self.headers,
                 data=json.dumps(data),
