@@ -17,5 +17,5 @@ class RecipesModel(BaseModel):
         self.tags = get_random_tags()
         self.image = create_random_image_base64("png")
         self.name = faker.name()
-        self.text = generate_HEX_color_code()
+        self.text = faker.text()
         self.cooking_time = random.randint(5, 60)

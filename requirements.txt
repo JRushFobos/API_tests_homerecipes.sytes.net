@@ -1,3 +1,5 @@
+allure-pytest==2.13.2
+allure-python-commons==2.13.2
 APScheduler==3.6.3
 atomicwrites==1.4.1
 attrs==22.2.0
