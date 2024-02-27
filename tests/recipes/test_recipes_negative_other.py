@@ -7,9 +7,9 @@ from supported_classes.http_client import CustomHttpClient as client
 
 faker = Faker()
 
-@allure.feature("TestRecipesOther")
+@allure.suite("TestRecipesNegative")
 class TestRecipesOther:
-    @allure.title("Test get recipes incorrect id")
+    @allure.title("Test get recipes incorrect id randint")
     def test_get_recipes_details_incorrect_id_status_code(self):
         with allure.step("Get response"):
             response = client().get(f"/api/recipes/{random.randint(10000,20000)}/")
@@ -18,7 +18,7 @@ class TestRecipesOther:
                 "Status not 404, " f"current status: {response.status_code}"
             )
 
-    @allure.title("Test delete recipes incorrect id")
+    @allure.title("Test delete recipes incorrect id randint")
     def test_delete_recipes_incorrect_id_status_code(self):
         with allure.step("Get response"):
             response = client().delete(f"/api/recipes/{random.randint(10000,20000)}/")

@@ -9,10 +9,9 @@ from schemas.recipes_schema import (valid_schema_get_recipes,
 from supported_classes.http_client import CustomHttpClient as client
 from test_utils.utils_func import compare_recipes_values
 
-
-@allure.feature("TestRecipes")
+@allure.suite("TestRecipesPositive")
 class TestRecipes:
-    @allure.title("test_create_recipes_without_token_status_code")
+    @allure.title("Test create recipes status code, schema")
     def test_create_recipes_status_code_schema(self):
         user = RecipesModel()
         data = user.to_dict()
@@ -21,7 +20,7 @@ class TestRecipes:
         id = response.json()["id"]
         with allure.step("Delete recipe"):
             client().delete(f"/api/recipes/{id}/")
-        with allure.step("Check assert status_code"):
+        with allure.step("Check assert status code"):
             assert (
                 response.status_code == 201
             ), f"Status not 201, current status: {response.status_code}"
@@ -31,11 +30,12 @@ class TestRecipes:
                          schema=valid_schema_post_recipes) is None
             ), "Response body not validate"
 
-    @allure.title("test_get_recipes_list_status_code_schema")
+
+    @allure.title("Test get recipes list status code, schema")
     def test_get_recipes_list_status_code_schema(self):
         with allure.step("Get response"):
             response = client().get("/api/recipes/")
-        with allure.step("Check assert status_code"):
+        with allure.step("Check assert status code"):
             assert (
                 response.status_code == 200
             ), f"Status not 200, current status: {response.status_code}"
@@ -45,11 +45,12 @@ class TestRecipes:
                          schema=valid_schema_recipes_array) is None
             ), "Response body not validate"
 
-    @allure.title("test_get_recipes_details_status_code_schema")
+
+    @allure.title("Test get recipe details status code, schema")
     def test_get_recipes_details_status_code_schema(self, get_recipe_id):
         with allure.step("Get response"):
             response = client().get(f"/api/recipes/{get_recipe_id}/")
-        with allure.step("Check assert status_code"):
+        with allure.step("Check assert status code"):
             assert (
                 response.status_code == 200
             ), f"Status not 200, current status: {response.status_code}"
@@ -59,7 +60,8 @@ class TestRecipes:
                          schema=valid_schema_get_recipes) is None
             ), "Response body not validate"
 
-    @allure.title("test_delete_recipe_status_code_schema")
+
+    @allure.title("Test delete recipe status code, schema")
     def test_delete_recipe_status_code_schema(self):
         user = RecipesModel()
         data = user.to_dict()
@@ -73,7 +75,8 @@ class TestRecipes:
                 response_delete.status_code == 204
             ), f"Status not 200, current status: {response_delete.status_code}"
 
-    @allure.title("test_patch_recipe_status_code_compare_values")
+
+    @allure.title("Test patch recipe status code, compare values")
     def test_patch_recipe_status_code_compare_values(self, get_recipe_id):
         user = RecipesModel()
         data = user.to_dict()

@@ -8,9 +8,9 @@ from supported_classes.http_client import CustomHttpClient as client
 faker = Faker()
 
 
-@allure.feature("TestRecipesNegativePatch")
+@allure.suite("TestRecipesNegative")
 class TestRecipesNegativePatch:
-    @allure.title("test_patch_recipes_without_token")
+    @allure.title("Test patch recipes without token")
     def test_patch_recipes_without_token_status_code(self, get_recipe_id):
         user = RecipesModel()
         data = user.to_dict()
@@ -20,12 +20,12 @@ class TestRecipesNegativePatch:
                 .disable_authorization()
                 .patch(f"/api/recipes/{get_recipe_id}/", data=data)
             )
-        with allure.step("Check assert"):
+        with allure.step("Check assert status code"):
             assert (
             response.status_code == 401
         ), f"Status not 401, current status: {response.status_code}"
 
-    @allure.title("test_patch_recipes_with_letter_ingredients_id")
+    @allure.title("Test patch recipes with letter ingredients id")
     def test_patch_recipes_with_letter_ingredients_id_status_code(
         self, get_recipe_id):
         user = RecipesModel()
@@ -34,12 +34,12 @@ class TestRecipesNegativePatch:
         with allure.step("Get response"):
             response = client().patch(f"/api/recipes/{get_recipe_id}/",
                                       data=data)
-        with allure.step("Check assert"):
+        with allure.step("Check assert status code"):
             assert (
             response.status_code == 400
         ), f"Status not 400, current status: {response.status_code}"
 
-    @allure.title("test_patch_recipes_with_boolean_ingredients_id")
+    @allure.title("Test patch recipes with boolean ingredients id")
     def test_patch_recipes_with_boolean_ingredients_id_status_code(
         self, get_recipe_id):
         user = RecipesModel()
@@ -48,12 +48,12 @@ class TestRecipesNegativePatch:
         with allure.step("Get response"):
             response = client().patch(f"/api/recipes/{get_recipe_id}/",
                                       data=data)
-        with allure.step("Check assert"):
+        with allure.step("Check assert status code"):
             assert (
             response.status_code == 400
         ), f"Status not 400, current status: {response.status_code}"
 
-    @allure.title("test_patch_recipes_with_letter")
+    @allure.title("Test patch recipes with letters ingredients amount status")
     def test_patch_recipes_with_letter_ingredients_amount_status_code(
         self, get_recipe_id
     ):
@@ -63,12 +63,12 @@ class TestRecipesNegativePatch:
         with allure.step("Get response"):
             response = client().patch(f"/api/recipes/{get_recipe_id}/",
                                       data=data)
-        with allure.step("Check assert"):
+        with allure.step("Check assert status code"):
             assert (
             response.status_code == 400
         ), f"Status not 400, current status: {response.status_code}"
 
-    @allure.title("test_patch_recipes_with_boolean")
+    @allure.title("Test patch recipes with boolean status code")
     def test_patch_recipes_with_boolean_ingredients_amount_status_code(
         self, get_recipe_id
     ):
@@ -78,12 +78,12 @@ class TestRecipesNegativePatch:
         with allure.step("Get response"):
             response = client().patch(f"/api/recipes/{get_recipe_id}/",
                                       data=data)
-        with allure.step("Check assert"):
+        with allure.step("Check assert status code"):
             assert (
             response.status_code == 400
         ), f"Status not 400, current status: {response.status_code}"
 
-    @allure.title("test_patch_recipes_with_letter_tags")
+    @allure.title("Test patch recipes with letters tags status code")
     def test_patch_recipes_with_letter_tags_status_code(self, get_recipe_id):
         user = RecipesModel()
         data = user.to_dict()
@@ -91,12 +91,12 @@ class TestRecipesNegativePatch:
         with allure.step("Get response"):
             response = client().patch(f"/api/recipes/{get_recipe_id}/",
                                       data=data)
-        with allure.step("Check assert"):
+        with allure.step("Check assert status code"):
             assert (
             response.status_code == 400
         ), f"Status not 400, current status: {response.status_code}"
 
-    @allure.title("test_patch_recipes_with_boolean_tags")
+    @allure.title("Test patch recipes with boolean tags status code")
     def test_patch_recipes_with_boolean_tags_status_code(self, get_recipe_id):
         user = RecipesModel()
         data = user.to_dict()
@@ -104,12 +104,12 @@ class TestRecipesNegativePatch:
         with allure.step("Get response"):
             response = client().patch(f"/api/recipes/{get_recipe_id}/",
                                       data=data)
-        with allure.step("Check assert"):
+        with allure.step("Check assert status code"):
             assert (
             response.status_code == 400
         ), f"Status not 400, current status: {response.status_code}"
 
-    @allure.title("test_patch_recipes_with_letter_image")
+    @allure.title("Test patch recipes with letters image status code")
     def test_patch_recipes_with_letter_image_status_code(self, get_recipe_id):
         user = RecipesModel()
         data = user.to_dict()
@@ -117,12 +117,12 @@ class TestRecipesNegativePatch:
         with allure.step("Get response"):
             response = client().patch(f"/api/recipes/{get_recipe_id}/",
                                       data=data)
-        with allure.step("Check assert"):
+        with allure.step("Check assert status code"):
             assert (
             response.status_code == 400
         ), f"Status not 400, current status: {response.status_code}"
 
-    @allure.title("test_patch_recipes_with_boolean_image")
+    @allure.title("Test patch recipes with boolean image status code")
     def test_patch_recipes_with_boolean_image_status_code(self, get_recipe_id):
         user = RecipesModel()
         data = user.to_dict()
@@ -130,12 +130,12 @@ class TestRecipesNegativePatch:
         with allure.step("Get response"):
             response = client().patch(f"/api/recipes/{get_recipe_id}/",
                                       data=data)
-        with allure.step("Check assert"):
+        with allure.step("Check assert status code"):
             assert (
             response.status_code == 400
         ), f"Status not 400, current status: {response.status_code}"
 
-    @allure.title("test_patch_recipes_with_int_image")
+    @allure.title("Test patch recipes with randint image status code")
     def test_patch_recipes_with_int_image_status_code(self, get_recipe_id):
         user = RecipesModel()
         data = user.to_dict()
@@ -143,12 +143,12 @@ class TestRecipesNegativePatch:
         with allure.step("Get response"):
             response = client().patch(f"/api/recipes/{get_recipe_id}/",
                                       data=data)
-        with allure.step("Check assert"):
+        with allure.step("Check assert status code"):
             assert (
             response.status_code == 400
         ), f"Status not 400, current status: {response.status_code}"
 
-    @allure.title("test_patch_recipes_with_letter_name")
+    @allure.title("Test patch recipes with letter name status code")
     def test_patch_recipes_with_letter_name_status_code(self, get_recipe_id):
         user = RecipesModel()
         data = user.to_dict()
@@ -156,12 +156,12 @@ class TestRecipesNegativePatch:
         with allure.step("Get response"):
             response = client().patch(f"/api/recipes/{get_recipe_id}/",
                                       data=data)
-        with allure.step("Check assert"):
+        with allure.step("Check assert status code"):
             assert (
             response.status_code == 400
         ), f"Status not 400, current status: {response.status_code}"
 
-    @allure.title("test_patch_recipes_with_boolean_name")
+    @allure.title("Test patch recipes with boolean name status code")
     def test_patch_recipes_with_boolean_name_status_code(self, get_recipe_id):
         user = RecipesModel()
         data = user.to_dict()
@@ -169,12 +169,12 @@ class TestRecipesNegativePatch:
         with allure.step("Get response"):
             response = client().patch(f"/api/recipes/{get_recipe_id}/",
                                       data=data)
-        with allure.step("Check assert"):
+        with allure.step("Check assert status code"):
             assert (
             response.status_code == 400
         ), f"Status not 400, current status: {response.status_code}"
 
-    @allure.title("test_patch_recipes_with_int_name")
+    @allure.title("Test patch recipes with randint name status code")
     def test_patch_recipes_with_int_name_status_code(self, get_recipe_id):
         user = RecipesModel()
         data = user.to_dict()
@@ -182,12 +182,12 @@ class TestRecipesNegativePatch:
         with allure.step("Get response"):
             response = client().patch(f"/api/recipes/{get_recipe_id}/",
                                       data=data)
-        with allure.step("Check assert"):
+        with allure.step("Check assert status code"):
             assert (
             response.status_code == 400
         ), f"Status not 400, current status: {response.status_code}"
 
-    @allure.title("test_patch_recipes_with_boolean_text")
+    @allure.title("Test patch recipes with boolean text status code")
     def test_patch_recipes_with_boolean_text_status_code(self, get_recipe_id):
         user = RecipesModel()
         data = user.to_dict()
@@ -195,12 +195,12 @@ class TestRecipesNegativePatch:
         with allure.step("Get response"):
             response = client().patch(f"/api/recipes/{get_recipe_id}/",
                                       data=data)
-        with allure.step("Check assert"):
+        with allure.step("Check assert status code"):
             assert (
             response.status_code == 400
         ), f"Status not 400, current status: {response.status_code}"
 
-    @allure.title("test_patch_recipes_with_boolean_cooking_time")
+    @allure.title("Test patch recipes with boolean cooking time status code")
     def test_patch_recipes_with_boolean_cooking_time_status_code(
         self, get_recipe_id):
         user = RecipesModel()
@@ -209,13 +209,13 @@ class TestRecipesNegativePatch:
         with allure.step("Get response"):
             response = client().patch(f"/api/recipes/{get_recipe_id}/",
                                       data=data)
-        with allure.step("Check assert"):
+        with allure.step("Check assert status code"):
             assert (
             response.status_code == 400
         ), f"Status not 400, current status: {response.status_code}"
 
-    @allure.title("test_patch_recipes_with_int_cooking_time")
-    def test_patch_recipes_with_int_cooking_time_status_code(self,
+    @allure.title("Test patch recipes with letters cooking_time status code")
+    def test_patch_recipes_with_letters_cooking_time_status_code(self,
                                                              get_recipe_id):
         user = RecipesModel()
         data = user.to_dict()
@@ -223,12 +223,12 @@ class TestRecipesNegativePatch:
         with allure.step("Get response"):
             response = client().patch(f"/api/recipes/{get_recipe_id}/",
                                        data=data)
-        with allure.step("Check assert"):
+        with allure.step("Check assert status code"):
             assert (
             response.status_code == 400
         ), f"Status not 400, current status: {response.status_code}"
 
-    @allure.title("test_patch_recipes_with_boolean_cooking_time")
+    @allure.title("Test patch recipes with boolean cooking_time status code")
     def test_patch_recipes_with_boolean_cooking_time_status_code(
         self, get_recipe_id):
         user = RecipesModel()
@@ -237,13 +237,13 @@ class TestRecipesNegativePatch:
         with allure.step("Get response"):
             response = client().patch(f"/api/recipes/{get_recipe_id}/",
                                       data=data)
-        with allure.step("Check assert"):
+        with allure.step("Check assert status code"):
             assert (
             response.status_code == 400
         ), f"Status not 400, current status: {response.status_code}"
 
-    @allure.title("test_patch_recipes_with_int_cooking_time")
-    def test_patch_recipes_with_int_cooking_time_status_code(self,
+    @allure.title("Test patch recipes with letters cooking_time status code")
+    def test_patch_recipes_with_letters_cooking_time_status_code(self,
                                                              get_recipe_id):
         user = RecipesModel()
         data = user.to_dict()
@@ -251,7 +251,7 @@ class TestRecipesNegativePatch:
         with allure.step("Get response"):
             response = client().patch(f"/api/recipes/{get_recipe_id}/",
                                       data=data)
-        with allure.step("Check assert"):
+        with allure.step("Check assert status code"):
             assert (
             response.status_code == 400
         ), f"Status not 400, current status: {response.status_code}"
