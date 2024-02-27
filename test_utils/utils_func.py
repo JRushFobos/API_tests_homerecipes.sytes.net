@@ -60,14 +60,13 @@ def compare_dicts(initial_data_dict: dict, response_dict: dict) -> bool:
             return False
     return True
 
-def compare_recipes_values(
-        initial_data_dict: dict, response_dict: dict) -> bool:
-    compare_values = ("tags",
-                      "name",
-                      "text",
-                      "cooking_time")
-    if initial_data_dict["ingredients"][0].get("amount") != response_dict["ingredients"][0].get("amount"):
-            return False
+
+def compare_recipes_values(initial_data_dict: dict, response_dict: dict) -> bool:
+    compare_values = ("tags", "name", "text", "cooking_time")
+    if initial_data_dict["ingredients"][0].get("amount") != response_dict[
+        "ingredients"
+    ][0].get("amount"):
+        return False
     for value in compare_values:
         if initial_data_dict[value] != response_dict[value]:
             return False

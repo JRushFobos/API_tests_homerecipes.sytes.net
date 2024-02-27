@@ -2,9 +2,10 @@ import os
 import random
 
 import pytest
+import allure
 
-from models.users_model import UsersModel
 from models.recipes_model import RecipesModel
+from models.users_model import UsersModel
 from supported_classes.http_client import CustomHttpClient as client
 
 
@@ -51,11 +52,15 @@ def get_random_inredient_id():
     inredient_id = random.choices(range(1, len(response.json())))
     return inredient_id[0]
 
+
 @pytest.fixture(scope="class")
+@allure.title("Fixture get_recipe_id")
 def get_recipe_id():
     user = RecipesModel()
     data = user.to_dict()
     response = client().post("/api/recipes/", data=data)
-    recipe_id = response.json()["id"]
+    with allure.step("Fixture get recipe id"):
+        recipe_id = response.json()["id"]
     yield recipe_id
-    client().delete(f"/api/recipes/{recipe_id}/")
+    with allure.step("Fixture delete recipe id"):
+        client().delete(f"/api/recipes/{recipe_id}/")

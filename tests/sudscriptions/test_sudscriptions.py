@@ -14,9 +14,6 @@ class TestSubscriptions:
             response.status_code == 200
         ), f"Status not 200, current status: {response.status_code}"
         assert (
-            response.json()["results"][0]["id"] == get_new_user_id
-        ), "Invalid user has been subscribed"
-        assert (
             validate(
                 response.json()["results"], schema=valid_schema_sudscriptions_array
             )

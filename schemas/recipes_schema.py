@@ -10,9 +10,9 @@ valid_schema_get_recipes = {
                     "id": {"type": "integer"},
                     "name": {"type": "string"},
                     "color": {"type": "string", "pattern": "^#[0-9a-fA-F]{6}$"},
-                    "slug": {"type": "string"}
+                    "slug": {"type": "string"},
                 },
-            }
+            },
         },
         "author": {
             "type": "object",
@@ -22,7 +22,7 @@ valid_schema_get_recipes = {
                 "first_name": {"type": "string"},
                 "last_name": {"type": "string"},
                 "email": {"type": "string", "format": "email"},
-                "is_subscribed": {"type": "boolean"}
+                "is_subscribed": {"type": "boolean"},
             },
         },
         "ingredients": {
@@ -33,16 +33,16 @@ valid_schema_get_recipes = {
                     "id": {"type": "integer"},
                     "name": {"type": "string"},
                     "measurement_unit": {"type": "string"},
-                    "amount": {"type": "integer"}
+                    "amount": {"type": "integer"},
                 },
-            }
+            },
         },
         "is_favorited": {"type": "boolean"},
         "is_in_shopping_cart": {"type": "boolean"},
         "image": {"type": "string", "format": "uri"},
         "name": {"type": "string"},
         "text": {"type": "string"},
-        "cooking_time": {"type": "integer"}
+        "cooking_time": {"type": "integer"},
     },
 }
 
@@ -50,10 +50,7 @@ valid_schema_post_recipes = {
     "type": "object",
     "properties": {
         "id": {"type": "integer"},
-        "tags": {
-            "type": "array",
-            "items": {"type": "integer"}
-        },
+        "tags": {"type": "array", "items": {"type": "integer"}},
         "author": {"type": "integer"},
         "ingredients": {
             "type": "array",
@@ -61,16 +58,16 @@ valid_schema_post_recipes = {
                 "type": "object",
                 "properties": {
                     "id": {"type": "integer"},
-                    "amount": {"type": "integer"}
+                    "amount": {"type": "integer"},
                 },
-            }
+            },
         },
         "is_favorited": {"type": "boolean"},
         "is_in_shopping_cart": {"type": "boolean"},
         "image": {"type": "string", "format": "uri"},
         "name": {"type": "string"},
         "text": {"type": "string"},
-        "cooking_time": {"type": "integer"}
+        "cooking_time": {"type": "integer"},
     },
 }
 
