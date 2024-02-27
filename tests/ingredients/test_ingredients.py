@@ -23,7 +23,7 @@ class TestInredients:
                          schema=valid_schema_ingridients_array) is None
             ), "Response body not validate"
 
-    @allure.title("Test get inredient detail status code schema")
+    @allure.title("Test get inredient detail status code, schema")
     def test_get_inredients_detail_status_code_schema(self,
                                                       get_random_inredient_id):
         with allure.step("Get inredients detail"):
