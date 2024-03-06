@@ -21,7 +21,7 @@ class CustomHttpClient:
         return self
 
     def enable_admin_authorization(self):
-        url = "https://homerecipes.sytes.net//api/auth/token/login/"
+        url = "https://homerecipes.sytes.net/api/auth/token/login/"
         body = {"email": os.getenv("LOGIN"), "password": os.getenv("PASSWORD")}
         request = requests.post(url, data=body)
         token = request.json()["auth_token"]
