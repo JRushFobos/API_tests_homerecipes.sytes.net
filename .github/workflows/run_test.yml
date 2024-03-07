@@ -82,6 +82,4 @@ jobs:
         message: |
           Тесты успешно пройдены!
           Пользователь: ${{ github.actor }}
-          Сообщение: ${{ github.event.commits[0].message }}
-          Коммит: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
           Allure Report link: https://jrushfobos.github.io/API_tests_homerecipes.sytes.net/
