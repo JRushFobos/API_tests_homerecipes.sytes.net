@@ -26,18 +26,20 @@ jobs:
       env:
         LOGIN: ${{ secrets.LOGIN }}
         PASSWORD: ${{ secrets.PASSWORD }}
-      run: pytest --alluredir=allure-reports
+      run: pytest --alluredir=allure-results
+      continue-on-error: true
     - name: Store allure results
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v3
       with:
-        name: allure-reports
-        path: allure-reports
+        name: allure-results
+        path:
+          allure-results
         retention-days: 1
-
+  
   generate-report:
     runs-on: ubuntu-latest
     needs: test
-    name: Generate reports
+    name: Generate report
     steps:
       - uses: actions/setup-java@v3
         with:
@@ -46,12 +48,13 @@ jobs:
       - run: sudo wget https://github.com/allure-framework/allure2/releases/download/2.23.1/allure-2.23.1.tgz && sudo tar -zxvf allure-2.23.1.tgz -C /opt/ && sudo ln -s /opt/allure-2.23.1/bin/allure /usr/bin/allure
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v3
-      - run: allure generate -c allure-reports -o _site
+      - run: allure generate -c allure-results -o _site
       - name: Store generated report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: _site
-          path: _site
+          path:
+            _site
           retention-days: 1
 
   publish-report:
@@ -65,4 +68,6 @@ jobs:
         uses: actions/upload-pages-artifact@v2
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v1.2.9
+      
+    
